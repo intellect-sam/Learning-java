@@ -4,7 +4,13 @@ class Second {
         // myCar.fullThrottle();
         // myCar.speed(200);
 
-        Main myObj = new Main(5);
-        System.out.println(myObj.x);
+        // Calling the function from a previous file 
+        Main.getName("Samuel");
+
+        // This is a constructor
+        Main myCar = new Main(1969, "Corolla");
+        System.out.println(myCar.modelYear + " " + myCar.modelName );
     }
+
+    
 }

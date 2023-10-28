@@ -1,8 +1,16 @@
 public class Main {
-    int x;
 
-    public Main(int y) {
-        x = y;
+    int modelYear;
+    String modelName;
+
+    public Main(int year, String name) {
+        modelYear = year;
+        modelName = name;
+    }
+
+    // this is a funtion that was called in anothe function
+    public static void getName(String name) {
+        System.out.println("My name is " + name);
     }
 
     public void fullThrottle() {
