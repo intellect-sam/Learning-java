@@ -1,32 +1,66 @@
 import java.util.HashSet;
-import java.util.Iterator;
+import java.util.Objects;
+import java.util.Set;
 
+class Customer {
+    private long id;
+    private String name;
+
+    public Customer(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Customer customer = (Customer) o;
+        return id == customer.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+         return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
 
 public class JavaHashSet {
     public static void main(String[] args) {
-        HashSet<Integer> numbers = new HashSet<Integer>();
-
-        numbers.add(3);
-        numbers.add(5);
-        numbers.add(6);
-        numbers.add(9);
-        numbers.add(2);
-
-        // for (String i : cars) {
-        //     System.out.println(i);
-        // }
-
-        Iterator<Integer> it = numbers.iterator();
-        System.out.println(it.next());
-
+        Set<Customer> customers = new HashSet<>();
         
-        for (int i = 1; i <= 10; i++) {
-            if (numbers.contains(i)) {
-                System.out.println(i + " Was found in the set ");
-            } else {
-                System.out.println(i + " was not found in the set");
-            }
-        }
+        customers.add(new Customer(101, "Rajeev"));
+        customers.add(new Customer(102, "Sachin"));
+        customers.add(new Customer(103, "Chris"));
 
+        customers.add(new Customer(104, "Rajeev"));
+
+        System.out.println(customers);
+      
     }
 }
